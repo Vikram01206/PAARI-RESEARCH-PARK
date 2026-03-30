@@ -60,10 +60,10 @@ export function EventPopup() {
           </div>
 
           <div className="flex flex-wrap gap-3 pt-2">
-            <Button variant="whatsapp" size="lg" className="flex-1" asChild>
-              <a href="https://wa.me/918610054483?text=Hi%2C%20I%27m%20interested%20in%20the%20upcoming%20seminar" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5" />
-                Register via WhatsApp
+            <Button variant="default" size="lg" className="flex-1" asChild>
+              <a href="tel:+918610054483">
+                <Phone className="h-5 w-5" />
+                Call to Register
               </a>
             </Button>
             <Button variant="outline" size="lg" className="flex-1" asChild>

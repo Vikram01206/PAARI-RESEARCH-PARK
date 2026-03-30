@@ -219,10 +219,10 @@ export default function Index() {
               Join hundreds of students who have achieved academic success with our professional research support.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Button variant="whatsapp" size="lg" asChild>
-                <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-5 w-5" />
-                  WhatsApp Us
+              <Button variant="default" size="lg" asChild>
+                <a href="tel:+918610054483">
+                  <Phone className="h-5 w-5" />
+                  Call Us
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild className="border-primary-foreground/40 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20 hover:text-primary-foreground">

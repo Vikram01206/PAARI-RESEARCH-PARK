@@ -44,10 +44,10 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button variant="whatsapp" size="sm" asChild className="hidden sm:inline-flex">
-            <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp Us
+          <Button variant="default" size="sm" asChild className="hidden sm:inline-flex">
+            <a href="tel:+918610054483">
+              <Phone className="h-4 w-4" />
+              Call Us
             </a>
           </Button>
           <button

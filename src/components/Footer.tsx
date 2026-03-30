@@ -36,10 +36,10 @@ export function Footer() {
             <h4 className="font-display font-semibold text-lg mb-4">Get in Touch</h4>
             <div className="flex flex-col gap-3">
               <a
-                href="https://wa.me/918610054483"
+                href="tel:+918610054483"
                 className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors"
               >
-                <MessageCircle className="h-4 w-4" /> WhatsApp
+                <Phone className="h-4 w-4" /> +91 8610054483
               </a>
               <a
                 href="mailto:paariresearchpark@gmail.com"

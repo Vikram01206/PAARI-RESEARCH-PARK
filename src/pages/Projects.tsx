@@ -35,8 +35,8 @@ export default function Projects() {
                 <h3 className="font-display font-semibold text-lg text-foreground mb-2">{project.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">{project.description}</p>
                 <Button variant="outline" size="sm" className="w-full" asChild>
-                  <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="h-4 w-4" />
+                  <a href="mailto:paariresearchpark@gmail.com?subject=Project%20Details">
+                    <Mail className="h-4 w-4" />
                     View Details
                   </a>
                 </Button>

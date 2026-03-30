@@ -96,10 +96,10 @@ export default function News() {
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{item.description}</p>
                 <div className="flex gap-2">
-                  <Button variant="whatsapp" size="sm" className="flex-1" asChild>
-                    <a href={`https://wa.me/918610054483?text=Hi%2C%20I%27m%20interested%20in%20${encodeURIComponent(item.title)}`} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-4 w-4" />
-                      Enquire
+                  <Button variant="default" size="sm" className="flex-1" asChild>
+                    <a href="tel:+918610054483">
+                      <Phone className="h-4 w-4" />
+                      Call Us
                     </a>
                   </Button>
                   <Button variant="outline" size="sm" className="flex-1" asChild>
