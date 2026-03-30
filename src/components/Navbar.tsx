@@ -75,10 +75,10 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
-          <Button variant="whatsapp" className="mt-2" asChild>
-            <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp Us
+          <Button variant="default" className="mt-2" asChild>
+            <a href="tel:+918610054483">
+              <Phone className="h-4 w-4" />
+              Call Us
             </a>
           </Button>
         </div>

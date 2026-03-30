@@ -44,9 +44,9 @@ export default function Projects() {
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-primary/90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
                   <p className="text-primary-foreground font-display font-semibold text-lg mb-4">Interested?</p>
-                  <Button variant="whatsapp" size="sm" asChild>
-                    <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-4 w-4" />
+                  <Button variant="default" size="sm" asChild>
+                    <a href="mailto:paariresearchpark@gmail.com?subject=Project%20Inquiry">
+                      <Mail className="h-4 w-4" />
                       Inquire Now
                     </a>
                   </Button>
