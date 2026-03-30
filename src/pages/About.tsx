@@ -14,7 +14,7 @@ export default function About() {
       <section className="section-padding">
         <div className="container-narrow">
           <div className="text-center mb-14">
-            <h1 className="text-4xl sm:text-5xl font-display font-bold text-foreground mb-4">About ResearchHub</h1>
+            <h1 className="text-4xl sm:text-5xl font-display font-bold text-foreground mb-4">About Paari Research Park</h1>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               We are a team of passionate researchers, writers, and academics committed to helping students achieve their full potential.
             </p>

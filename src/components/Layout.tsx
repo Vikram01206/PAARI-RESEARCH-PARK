@@ -9,9 +9,8 @@ export function Layout({ children }: { children: ReactNode }) {
       <Navbar />
       <main className="flex-1 pt-20">{children}</main>
       <Footer />
-      {/* Sticky WhatsApp button (mobile) */}
       <a
-        href="https://wa.me/1234567890"
+        href="https://wa.me/918610054483"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 md:hidden w-14 h-14 rounded-full bg-whatsapp text-whatsapp-foreground flex items-center justify-center skeu-button"
