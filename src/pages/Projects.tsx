@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, ExternalLink } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const projects = [
   { title: "AI-Driven Crop Disease Detection", domain: "Machine Learning", description: "Developed a CNN-based model to detect crop diseases from leaf images with 96% accuracy." },

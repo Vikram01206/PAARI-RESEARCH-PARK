@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
 
 const navItems = [

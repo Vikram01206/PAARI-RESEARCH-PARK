@@ -1,5 +1,5 @@
 import { Layout } from "@/components/Layout";
-import { MessageCircle, Mail, Calendar, Tag } from "lucide-react";
+import { Phone, Mail, Calendar, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const announcements = [

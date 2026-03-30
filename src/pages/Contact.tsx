@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useState, FormEvent } from "react";
 
 export default function Contact() {

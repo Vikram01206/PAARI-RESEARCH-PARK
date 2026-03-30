@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { EventPopup } from "@/components/EventPopup";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Mail, BookOpen, GraduationCap, Users, Award, ArrowRight, Star, FileText, BarChart3, Lightbulb } from "lucide-react";
+import { Phone, Mail, BookOpen, GraduationCap, Users, Award, ArrowRight, Star, FileText, BarChart3, Lightbulb } from "lucide-react";
 
 const stats = [
   { value: "500+", label: "Projects Completed", icon: FileText },

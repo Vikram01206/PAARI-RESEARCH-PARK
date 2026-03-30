@@ -1,5 +1,5 @@
 import { Layout } from "@/components/Layout";
-import { Calendar as CalendarIcon, Clock, MapPin, MessageCircle } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, MapPin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 

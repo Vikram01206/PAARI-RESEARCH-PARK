@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { BookOpen, GraduationCap, Users, Award, FileText, BarChart3, PenTool, Search, MessageCircle } from "lucide-react";
+import { BookOpen, GraduationCap, Users, Award, FileText, BarChart3, PenTool, Search, Phone } from "lucide-react";
 
 const categories = [
   {
