@@ -8,6 +8,9 @@ import Services from "./pages/Services.tsx";
 import Projects from "./pages/Projects.tsx";
 import About from "./pages/About.tsx";
 import Contact from "./pages/Contact.tsx";
+import News from "./pages/News.tsx";
+import Events from "./pages/Events.tsx";
+import Gallery from "./pages/Gallery.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
