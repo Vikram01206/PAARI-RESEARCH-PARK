@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, MessageCircle } from "lucide-react";
+import logo from "@/assets/logo.jpeg";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -18,15 +19,11 @@ export function Navbar() {
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[1300px]">
       <div className="skeu-navbar px-4 md:px-6 py-3 flex items-center justify-between">
-        {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center skeu-button">
-            <span className="text-primary-foreground font-display font-bold text-lg">R</span>
-          </div>
-          <span className="font-display font-bold text-xl text-foreground hidden sm:block">ResearchHub</span>
+          <img src={logo} alt="Paari Research Park" className="h-9 w-auto rounded-lg" />
+          <span className="font-display font-bold text-xl text-foreground hidden sm:block">Paari Research Park</span>
         </Link>
 
-        {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
             <Link
@@ -43,10 +40,9 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* CTA + Mobile toggle */}
         <div className="flex items-center gap-2">
           <Button variant="whatsapp" size="sm" asChild className="hidden sm:inline-flex">
-            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-4 w-4" />
               WhatsApp Us
             </a>
@@ -60,7 +56,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden mt-2 skeu-navbar p-4 flex flex-col gap-1">
           {navItems.map((item) => (
@@ -78,7 +73,7 @@ export function Navbar() {
             </Link>
           ))}
           <Button variant="whatsapp" className="mt-2" asChild>
-            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-4 w-4" />
               WhatsApp Us
             </a>
