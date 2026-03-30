@@ -57,6 +57,7 @@ const testimonials = [
 export default function Index() {
   return (
     <Layout>
+      <EventPopup />
       {/* HERO */}
       <section className="section-padding">
         <div className="container-narrow">
