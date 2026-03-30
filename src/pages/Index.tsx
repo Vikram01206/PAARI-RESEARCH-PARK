@@ -75,10 +75,10 @@ export default function Index() {
                 Professional research assistance for students and academics. From papers to dissertations — we deliver excellence that gets results.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Button variant="whatsapp" size="lg" asChild>
-                  <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-5 w-5" />
-                    WhatsApp Us
+                <Button variant="default" size="lg" asChild>
+                  <a href="tel:+918610054483">
+                    <Phone className="h-5 w-5" />
+                    Call Us
                   </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
