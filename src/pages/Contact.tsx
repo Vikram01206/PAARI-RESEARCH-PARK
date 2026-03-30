@@ -8,7 +8,7 @@ export default function Contact() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:info@researchhub.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:paariresearchpark@gmail.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
     )}`;
     window.location.href = mailtoLink;
@@ -36,7 +36,7 @@ export default function Contact() {
                   <h3 className="font-display font-semibold text-foreground mb-1">WhatsApp</h3>
                   <p className="text-sm text-muted-foreground mb-2">Fastest way to reach us</p>
                   <Button variant="whatsapp" size="sm" asChild>
-                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
                       Chat Now
                     </a>
                   </Button>
@@ -50,8 +50,8 @@ export default function Contact() {
                 <div>
                   <h3 className="font-display font-semibold text-foreground mb-1">Email</h3>
                   <p className="text-sm text-muted-foreground mb-2">For detailed inquiries</p>
-                  <a href="mailto:info@researchhub.com" className="text-sm font-medium text-primary hover:underline">
-                    info@researchhub.com
+                  <a href="mailto:paariresearchpark@gmail.com" className="text-sm font-medium text-primary hover:underline">
+                    paariresearchpark@gmail.com
                   </a>
                 </div>
               </div>

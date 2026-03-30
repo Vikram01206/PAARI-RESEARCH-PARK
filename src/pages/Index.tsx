@@ -36,7 +36,7 @@ const testimonials = [
   {
     name: "Sarah M.",
     role: "PhD Candidate, MIT",
-    text: "ResearchHub helped me structure my dissertation perfectly. The quality was outstanding and they met every deadline.",
+    text: "Paari Research Park helped me structure my dissertation perfectly. The quality was outstanding and they met every deadline.",
     rating: 5,
   },
   {
@@ -48,7 +48,7 @@ const testimonials = [
   {
     name: "Priya R.",
     role: "Undergraduate, Stanford",
-    text: "Fast, reliable, and professional. My project stood out among all submissions thanks to ResearchHub.",
+    text: "Fast, reliable, and professional. My project stood out among all submissions thanks to Paari Research Park.",
     rating: 5,
   },
 ];
@@ -74,13 +74,13 @@ export default function Index() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button variant="whatsapp" size="lg" asChild>
-                  <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-5 w-5" />
                     WhatsApp Us
                   </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                  <a href="mailto:info@researchhub.com">
+                  <a href="mailto:paariresearchpark@gmail.com">
                     <Mail className="h-5 w-5" />
                     Email Us
                   </a>
@@ -218,13 +218,13 @@ export default function Index() {
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Button variant="whatsapp" size="lg" asChild>
-                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5" />
                   WhatsApp Us
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-                <a href="mailto:info@researchhub.com">
+                <a href="mailto:paariresearchpark@gmail.com">
                   <Mail className="h-5 w-5" />
                   Email Us
                 </a>
