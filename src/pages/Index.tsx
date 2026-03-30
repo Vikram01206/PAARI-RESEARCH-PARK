@@ -225,7 +225,7 @@ export default function Index() {
                   WhatsApp Us
                 </a>
               </Button>
-              <Button variant="outline" size="lg" asChild className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+              <Button variant="outline" size="lg" asChild className="border-primary-foreground/40 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20 hover:text-primary-foreground">
                 <a href="mailto:paariresearchpark@gmail.com">
                   <Mail className="h-5 w-5" />
                   Email Us
