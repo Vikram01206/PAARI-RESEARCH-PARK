@@ -1,5 +1,5 @@
 import { Layout } from "@/components/Layout";
-import { Calendar as CalendarIcon, Clock, MapPin, MessageCircle } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, MapPin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
@@ -159,9 +159,9 @@ export default function Events() {
                         {event.location}
                       </div>
                     </div>
-                    <Button variant="whatsapp" size="sm" className="w-full mt-3" asChild>
-                      <a href={`https://wa.me/918610054483?text=Hi%2C%20I%27m%20interested%20in%20${encodeURIComponent(event.title)}`} target="_blank" rel="noopener noreferrer">
-                        <MessageCircle className="h-4 w-4" />
+                    <Button variant="default" size="sm" className="w-full mt-3" asChild>
+                      <a href={`mailto:paariresearchpark@gmail.com?subject=Register%20for%20${encodeURIComponent(event.title)}`}>
+                        <Mail className="h-4 w-4" />
                         Register
                       </a>
                     </Button>

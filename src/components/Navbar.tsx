@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
 
 const navItems = [
@@ -44,10 +44,10 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button variant="whatsapp" size="sm" asChild className="hidden sm:inline-flex">
-            <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp Us
+          <Button variant="default" size="sm" asChild className="hidden sm:inline-flex">
+            <a href="tel:+918610054483">
+              <Phone className="h-4 w-4" />
+              Call Us
             </a>
           </Button>
           <button
@@ -75,10 +75,10 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
-          <Button variant="whatsapp" className="mt-2" asChild>
-            <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp Us
+          <Button variant="default" className="mt-2" asChild>
+            <a href="tel:+918610054483">
+              <Phone className="h-4 w-4" />
+              Call Us
             </a>
           </Button>
         </div>

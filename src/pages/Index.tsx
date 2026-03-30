@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { EventPopup } from "@/components/EventPopup";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Mail, BookOpen, GraduationCap, Users, Award, ArrowRight, Star, FileText, BarChart3, Lightbulb } from "lucide-react";
+import { Phone, Mail, BookOpen, GraduationCap, Users, Award, ArrowRight, Star, FileText, BarChart3, Lightbulb } from "lucide-react";
 
 const stats = [
   { value: "500+", label: "Projects Completed", icon: FileText },
@@ -75,10 +75,10 @@ export default function Index() {
                 Professional research assistance for students and academics. From papers to dissertations — we deliver excellence that gets results.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Button variant="whatsapp" size="lg" asChild>
-                  <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-5 w-5" />
-                    WhatsApp Us
+                <Button variant="default" size="lg" asChild>
+                  <a href="tel:+918610054483">
+                    <Phone className="h-5 w-5" />
+                    Call Us
                   </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
@@ -219,10 +219,10 @@ export default function Index() {
               Join hundreds of students who have achieved academic success with our professional research support.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Button variant="whatsapp" size="lg" asChild>
-                <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-5 w-5" />
-                  WhatsApp Us
+              <Button variant="default" size="lg" asChild>
+                <a href="tel:+918610054483">
+                  <Phone className="h-5 w-5" />
+                  Call Us
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild className="border-primary-foreground/40 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20 hover:text-primary-foreground">

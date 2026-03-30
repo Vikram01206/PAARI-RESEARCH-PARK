@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, ExternalLink } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const projects = [
   { title: "AI-Driven Crop Disease Detection", domain: "Machine Learning", description: "Developed a CNN-based model to detect crop diseases from leaf images with 96% accuracy." },
@@ -35,8 +35,8 @@ export default function Projects() {
                 <h3 className="font-display font-semibold text-lg text-foreground mb-2">{project.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">{project.description}</p>
                 <Button variant="outline" size="sm" className="w-full" asChild>
-                  <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="h-4 w-4" />
+                  <a href="mailto:paariresearchpark@gmail.com?subject=Project%20Details">
+                    <Mail className="h-4 w-4" />
                     View Details
                   </a>
                 </Button>
@@ -44,9 +44,9 @@ export default function Projects() {
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-primary/90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
                   <p className="text-primary-foreground font-display font-semibold text-lg mb-4">Interested?</p>
-                  <Button variant="whatsapp" size="sm" asChild>
-                    <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-4 w-4" />
+                  <Button variant="default" size="sm" asChild>
+                    <a href="mailto:paariresearchpark@gmail.com?subject=Project%20Inquiry">
+                      <Mail className="h-4 w-4" />
                       Inquire Now
                     </a>
                   </Button>

@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { BookOpen, GraduationCap, Users, Award, FileText, BarChart3, PenTool, Search, MessageCircle } from "lucide-react";
+import { BookOpen, GraduationCap, Users, Award, FileText, BarChart3, PenTool, Search, Phone } from "lucide-react";
 
 const categories = [
   {
@@ -81,9 +81,9 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <Button variant="whatsapp" size="sm" className="w-full mt-auto" asChild>
-                  <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-4 w-4" />
+                <Button variant="default" size="sm" className="w-full mt-auto" asChild>
+                  <a href="tel:+918610054483">
+                    <Phone className="h-4 w-4" />
                     Inquire Now
                   </a>
                 </Button>

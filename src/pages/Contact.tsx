@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useState, FormEvent } from "react";
 
 export default function Contact() {
@@ -29,15 +29,15 @@ export default function Contact() {
             {/* Left — Contact Info */}
             <div className="space-y-6">
               <div className="skeu-card p-6 flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-whatsapp/15 flex items-center justify-center flex-shrink-0">
-                  <MessageCircle className="h-6 w-6 text-whatsapp" />
+                <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
+                  <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-display font-semibold text-foreground mb-1">WhatsApp</h3>
-                  <p className="text-sm text-muted-foreground mb-2">Fastest way to reach us</p>
-                  <Button variant="whatsapp" size="sm" asChild>
-                    <a href="https://wa.me/918610054483" target="_blank" rel="noopener noreferrer">
-                      Chat Now
+                  <h3 className="font-display font-semibold text-foreground mb-1">Phone</h3>
+                  <p className="text-sm text-muted-foreground mb-2">Call or message us directly</p>
+                  <Button variant="default" size="sm" asChild>
+                    <a href="tel:+918610054483">
+                      +91 8610054483
                     </a>
                   </Button>
                 </div>
