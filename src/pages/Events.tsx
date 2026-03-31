@@ -2,15 +2,8 @@ import { Layout } from "@/components/Layout";
 import { Calendar as CalendarIcon, Clock, MapPin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-
-const events = [
-  { date: "2026-04-15", title: "International Conference on Research & Innovation", location: "Chennai, India", time: "9:00 AM – 5:00 PM", type: "Conference" },
-  { date: "2026-04-28", title: "Free Webinar: Research Gap Identification", location: "Online", time: "3:00 PM – 4:30 PM", type: "Webinar" },
-  { date: "2026-05-05", title: "Workshop: How to Publish in Scopus Journals", location: "Chennai, India", time: "10:00 AM – 4:00 PM", type: "Workshop" },
-  { date: "2026-05-20", title: "Seminar: AI in Academic Research", location: "Online", time: "2:00 PM – 5:00 PM", type: "Seminar" },
-  { date: "2026-06-01", title: "Summer Research Bootcamp (Day 1)", location: "Chennai, India", time: "9:00 AM – 5:00 PM", type: "Bootcamp" },
-  { date: "2026-06-10", title: "Thesis Writing Masterclass", location: "Online + Chennai", time: "10:00 AM – 3:00 PM", type: "Workshop" },
-];
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
 const months = [
   "January", "February", "March", "April", "May", "June",
@@ -34,8 +27,17 @@ const typeColors: Record<string, string> = {
 };
 
 export default function Events() {
-  const [currentMonth, setCurrentMonth] = useState(3); // April 2026
-  const [currentYear] = useState(2026);
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  const { data: events = [] } = useQuery({
+    queryKey: ["events"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("events").select("*").order("date");
+      if (error) throw error;
+      return data;
+    },
+  });
 
   const daysInMonth = getDaysInMonth(currentYear, currentMonth);
   const firstDay = getFirstDayOfMonth(currentYear, currentMonth);
@@ -48,6 +50,16 @@ export default function Events() {
   const getEventsForDay = (day: number) => {
     const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
     return events.filter((e) => e.date === dateStr);
+  };
+
+  const handlePrev = () => {
+    if (currentMonth === 0) { setCurrentMonth(11); setCurrentYear(y => y - 1); }
+    else setCurrentMonth(m => m - 1);
+  };
+
+  const handleNext = () => {
+    if (currentMonth === 11) { setCurrentMonth(0); setCurrentYear(y => y + 1); }
+    else setCurrentMonth(m => m + 1);
   };
 
   return (
@@ -68,59 +80,31 @@ export default function Events() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Calendar */}
             <div className="lg:col-span-2 skeu-card p-6">
               <div className="flex items-center justify-between mb-6">
-                <button
-                  onClick={() => setCurrentMonth((m) => (m === 0 ? 11 : m - 1))}
-                  className="px-3 py-1.5 rounded-lg bg-secondary hover:bg-secondary/80 text-sm font-medium transition-colors"
-                >
-                  ← Prev
-                </button>
-                <h2 className="font-display font-bold text-xl text-foreground">
-                  {months[currentMonth]} {currentYear}
-                </h2>
-                <button
-                  onClick={() => setCurrentMonth((m) => (m === 11 ? 0 : m + 1))}
-                  className="px-3 py-1.5 rounded-lg bg-secondary hover:bg-secondary/80 text-sm font-medium transition-colors"
-                >
-                  Next →
-                </button>
+                <button onClick={handlePrev} className="px-3 py-1.5 rounded-lg bg-secondary hover:bg-secondary/80 text-sm font-medium transition-colors">← Prev</button>
+                <h2 className="font-display font-bold text-xl text-foreground">{months[currentMonth]} {currentYear}</h2>
+                <button onClick={handleNext} className="px-3 py-1.5 rounded-lg bg-secondary hover:bg-secondary/80 text-sm font-medium transition-colors">Next →</button>
               </div>
 
-              {/* Day headers */}
               <div className="grid grid-cols-7 gap-1 mb-2">
                 {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
-                  <div key={d} className="text-center text-xs font-medium text-muted-foreground py-2">
-                    {d}
-                  </div>
+                  <div key={d} className="text-center text-xs font-medium text-muted-foreground py-2">{d}</div>
                 ))}
               </div>
 
-              {/* Days */}
               <div className="grid grid-cols-7 gap-1">
-                {Array.from({ length: firstDay }).map((_, i) => (
-                  <div key={`empty-${i}`} className="h-14" />
-                ))}
+                {Array.from({ length: firstDay }).map((_, i) => (<div key={`empty-${i}`} className="h-14" />))}
                 {Array.from({ length: daysInMonth }).map((_, i) => {
                   const day = i + 1;
                   const dayEvents = getEventsForDay(day);
                   const hasEvents = dayEvents.length > 0;
                   return (
-                    <div
-                      key={day}
-                      className={`h-14 rounded-lg flex flex-col items-center justify-center text-sm transition-colors ${
-                        hasEvents
-                          ? "bg-primary/10 text-primary font-bold ring-1 ring-primary/20"
-                          : "hover:bg-secondary/50"
-                      }`}
-                    >
+                    <div key={day} className={`h-14 rounded-lg flex flex-col items-center justify-center text-sm transition-colors ${hasEvents ? "bg-primary/10 text-primary font-bold ring-1 ring-primary/20" : "hover:bg-secondary/50"}`}>
                       {day}
                       {hasEvents && (
                         <div className="flex gap-0.5 mt-0.5">
-                          {dayEvents.map((e, idx) => (
-                            <div key={idx} className="w-1.5 h-1.5 rounded-full bg-primary" />
-                          ))}
+                          {dayEvents.map((_, idx) => (<div key={idx} className="w-1.5 h-1.5 rounded-full bg-primary" />))}
                         </div>
                       )}
                     </div>
@@ -129,41 +113,22 @@ export default function Events() {
               </div>
             </div>
 
-            {/* Event list */}
             <div className="space-y-4">
-              <h3 className="font-display font-bold text-lg text-foreground mb-2">
-                Events in {months[currentMonth]}
-              </h3>
+              <h3 className="font-display font-bold text-lg text-foreground mb-2">Events in {months[currentMonth]}</h3>
               {monthEvents.length === 0 ? (
-                <div className="skeu-card p-6 text-center text-muted-foreground text-sm">
-                  No events this month. Check other months!
-                </div>
+                <div className="skeu-card p-6 text-center text-muted-foreground text-sm">No events this month.</div>
               ) : (
                 monthEvents.map((event) => (
-                  <div key={event.date + event.title} className="skeu-card p-4 hover:-translate-y-0.5 transition-all duration-200">
-                    <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mb-2 ${typeColors[event.type] || "bg-secondary text-secondary-foreground"}`}>
-                      {event.type}
-                    </span>
+                  <div key={event.id} className="skeu-card p-4 hover:-translate-y-0.5 transition-all duration-200">
+                    <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mb-2 ${typeColors[event.type] || "bg-secondary text-secondary-foreground"}`}>{event.type}</span>
                     <h4 className="font-semibold text-sm text-foreground mb-2 leading-snug">{event.title}</h4>
                     <div className="space-y-1 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1.5">
-                        <CalendarIcon className="h-3 w-3" />
-                        {new Date(event.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Clock className="h-3 w-3" />
-                        {event.time}
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <MapPin className="h-3 w-3" />
-                        {event.location}
-                      </div>
+                      <div className="flex items-center gap-1.5"><CalendarIcon className="h-3 w-3" />{new Date(event.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</div>
+                      {event.time && <div className="flex items-center gap-1.5"><Clock className="h-3 w-3" />{event.time}</div>}
+                      {event.location && <div className="flex items-center gap-1.5"><MapPin className="h-3 w-3" />{event.location}</div>}
                     </div>
                     <Button variant="default" size="sm" className="w-full mt-3" asChild>
-                      <a href={`mailto:paariresearchpark@gmail.com?subject=Register%20for%20${encodeURIComponent(event.title)}`}>
-                        <Mail className="h-4 w-4" />
-                        Register
-                      </a>
+                      <a href={`mailto:paariresearchpark@gmail.com?subject=Register%20for%20${encodeURIComponent(event.title)}`}><Mail className="h-4 w-4" />Register</a>
                     </Button>
                   </div>
                 ))
