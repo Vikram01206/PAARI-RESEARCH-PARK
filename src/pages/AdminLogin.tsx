@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Lock, Mail, AlertCircle } from "lucide-react";
+import { Lock, Mail, AlertCircle, ArrowLeft } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
 
 export default function AdminLogin() {
@@ -30,8 +30,17 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <div className="skeu-card w-full max-w-md p-8">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background p-4 relative">
+      <div className="absolute top-4 left-4 md:top-8 md:left-8">
+        <Button variant="ghost" asChild className="gap-2 text-muted-foreground hover:text-foreground">
+          <Link to="/">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Home
+          </Link>
+        </Button>
+      </div>
+      
+      <div className="skeu-card w-full max-w-md p-8 mt-12 md:mt-0">
         <div className="text-center mb-8">
           <img src={logo} alt="Paari Research Park" className="h-16 w-auto mx-auto rounded-xl mb-4" />
           <h1 className="font-display font-bold text-2xl text-foreground">Admin Login</h1>
