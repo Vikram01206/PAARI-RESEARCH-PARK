@@ -44,9 +44,6 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Link to="/admin/login" className="hidden sm:inline-flex text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-3 py-2">
-            Admin
-          </Link>
           <Button variant="default" size="sm" asChild className="hidden sm:inline-flex">
             <a href="tel:+918610054483">
               <Phone className="h-4 w-4" />
@@ -78,13 +75,6 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
-          <Link
-            to="/admin/login"
-            onClick={() => setMobileOpen(false)}
-            className="px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-all"
-          >
-            Admin
-          </Link>
           <Button variant="default" className="mt-2" asChild>
             <a href="tel:+918610054483">
               <Phone className="h-4 w-4" />

@@ -6,6 +6,7 @@ import logo from "@/assets/logo.jpeg";
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
+      {/* Triggering redeployment after env variables setup */}
       <div className="container-narrow py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
@@ -54,6 +55,7 @@ export function Footer() {
 
         <div className="border-t border-primary-foreground/10 mt-12 pt-6 flex items-center justify-between text-sm text-primary-foreground/50">
           <span>© {new Date().getFullYear()} Paari Research Park. All rights reserved.</span>
+          <Link to="/admin/login" className="hover:text-primary-foreground/80 transition-colors">Admin</Link>
         </div>
       </div>
     </footer>
