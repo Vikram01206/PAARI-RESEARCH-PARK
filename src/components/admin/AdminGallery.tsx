@@ -47,8 +47,17 @@ export function AdminGallery() {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: async (id: string) => {
-      const { error } = await supabase.from("gallery").delete().eq("id", id);
+    mutationFn: async (item: GalleryItem) => {
+      // 1. Delete image file from storage if it's hosted in our bucket
+      if (item.image_url && item.image_url.includes("/storage/v1/object/public/gallery/")) {
+        const path = item.image_url.split("/storage/v1/object/public/gallery/")[1];
+        if (path) {
+          await supabase.storage.from("gallery").remove([path]);
+        }
+      }
+
+      // 2. Delete the record from the database
+      const { error } = await supabase.from("gallery").delete().eq("id", item.id);
       if (error) throw error;
     },
     onSuccess: () => {
@@ -114,7 +123,7 @@ export function AdminGallery() {
               <h4 className="text-sm font-semibold text-foreground truncate">{item.title}</h4>
               <div className="flex gap-1 mt-2">
                 <Button variant="outline" size="sm" onClick={() => openEdit(item)}><Pencil className="h-3 w-3" /></Button>
-                <Button variant="outline" size="sm" className="text-destructive" onClick={() => { if (confirm("Delete?")) deleteMutation.mutate(item.id); }}><Trash2 className="h-3 w-3" /></Button>
+                <Button variant="outline" size="sm" className="text-destructive" onClick={() => { if (confirm("Delete?")) deleteMutation.mutate(item); }}><Trash2 className="h-3 w-3" /></Button>
               </div>
             </div>
           </div>

@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Phone, Mail, BookOpen, GraduationCap, Users, Award, ArrowRight, Star, FileText, BarChart3, Lightbulb } from "lucide-react";
 
 const stats = [
-  { value: "500+", label: "Research Projects Completed", icon: FileText },
-  { value: "1000+", label: "Students Helped", icon: GraduationCap },
+  { value: "100+", label: "Research Projects Completed", icon: FileText },
+  { value: "150+", label: "Students Helped", icon: GraduationCap },
   { value: "95%", label: "Success Rate", icon: BarChart3 },
-  { value: "50+", label: "Research Domains", icon: Lightbulb },
+  { value: "15+", label: "Research Domains", icon: Lightbulb },
 ];
 
 const services = [
@@ -35,20 +35,20 @@ const services = [
 
 const testimonials = [
   {
-    name: "Sarah M.",
-    role: "PhD Candidate, MIT",
+    name: "M. Manish",
+    role: "Independent researcher",
     text: "Paari Research Park helped me structure my dissertation perfectly. The quality was outstanding and they met every deadline.",
     rating: 5,
   },
   {
-    name: "James K.",
-    role: "Masters Student, Oxford",
+    name: "A. Muhil",
+    role: "Independent researcher",
     text: "Incredible service! They understood my research topic deeply and delivered a paper that exceeded expectations.",
     rating: 5,
   },
   {
-    name: "Priya R.",
-    role: "Undergraduate, Stanford",
+    name: "D. Bhuvanesh",
+    role: "Independent researcher",
     text: "Fast, reliable, and professional. My project stood out among all submissions thanks to Paari Research Park.",
     rating: 5,
   },
@@ -131,7 +131,7 @@ export default function Index() {
                   ))}
                 </div>
                 <p className="text-xs text-muted-foreground">"Outstanding quality and delivery!"</p>
-                <p className="text-xs font-medium text-foreground mt-1">— Sarah M., MIT</p>
+                <p className="text-xs font-medium text-foreground mt-1">— M. Manish, Independent researcher</p>
               </div>
 
               {/* Spacer to reserve height */}
