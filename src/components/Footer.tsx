@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 import { Phone, Mail } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
 
