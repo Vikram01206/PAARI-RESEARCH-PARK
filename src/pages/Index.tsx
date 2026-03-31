@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, Mail, BookOpen, GraduationCap, Users, Award, ArrowRight, Star, FileText, BarChart3, Lightbulb } from "lucide-react";
 
 const stats = [
-  { value: "500+", label: "Projects Completed", icon: FileText },
+  { value: "500+", label: "Research Projects Completed", icon: FileText },
   { value: "1000+", label: "Students Helped", icon: GraduationCap },
   { value: "95%", label: "Success Rate", icon: BarChart3 },
   { value: "50+", label: "Research Domains", icon: Lightbulb },
