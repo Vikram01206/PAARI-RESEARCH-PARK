@@ -52,8 +52,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 mt-12 pt-6 text-center text-sm text-primary-foreground/50">
-          © {new Date().getFullYear()} Paari Research Park. All rights reserved.
+        <div className="border-t border-primary-foreground/10 mt-12 pt-6 flex items-center justify-between text-sm text-primary-foreground/50">
+          <span>© {new Date().getFullYear()} Paari Research Park. All rights reserved.</span>
+          <Link to="/admin/login" className="hover:text-primary-foreground/80 transition-colors">Admin</Link>
         </div>
       </div>
     </footer>
