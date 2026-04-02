@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/hooks/useAuth";
+import { Analytics } from "@vercel/analytics/react";
 import Index from "./pages/Index.tsx";
 import Services from "./pages/Services.tsx";
 import Projects from "./pages/Projects.tsx";
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Analytics />
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
