@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/hooks/useAuth";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Index from "./pages/Index.tsx";
 import Services from "./pages/Services.tsx";
 import Projects from "./pages/Projects.tsx";
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Analytics />
+          <SpeedInsights />
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
