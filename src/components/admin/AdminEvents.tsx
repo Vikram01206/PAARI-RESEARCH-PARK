@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Plus, Pencil, Trash2, Calendar } from "lucide-react";
+import { Plus, Pencil, Trash2, Calendar, Upload } from "lucide-react";
 import { toast } from "sonner";
 import type { Tables, TablesInsert } from "@/integrations/supabase/types";
 
@@ -30,6 +30,7 @@ export function AdminEvents() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingEvent, setEditingEvent] = useState<Event | null>(null);
   const [form, setForm] = useState(emptyEvent);
+  const [uploading, setUploading] = useState(false);
 
   const { data: events = [], isLoading } = useQuery({
     queryKey: ["admin-events"],
@@ -80,6 +81,22 @@ export function AdminEvents() {
     },
     onError: (err: Error) => toast.error(err.message),
   });
+
+  const handleFileUpload = async (file: File) => {
+    setUploading(true);
+    const ext = file.name.split(".").pop();
+    const path = `${Date.now()}.${ext}`;
+    const { error } = await supabase.storage.from("events").upload(path, file);
+    if (error) {
+      toast.error("Upload failed: " + error.message);
+      setUploading(false);
+      return;
+    }
+    const { data: urlData } = supabase.storage.from("events").getPublicUrl(path);
+    setForm({ ...form, image_url: urlData.publicUrl });
+    setUploading(false);
+    toast.success("Image uploaded!");
+  };
 
   const openCreate = () => {
     setEditingEvent(null);
@@ -226,8 +243,16 @@ export function AdminEvents() {
               </div>
             </div>
             <div className="space-y-2">
-              <Label>Image URL (optional)</Label>
-              <Input value={form.image_url || ""} onChange={(e) => setForm({ ...form, image_url: e.target.value })} placeholder="https://..." />
+              <Label>Image (optional)</Label>
+              <div className="flex gap-2">
+                <Input value={form.image_url || ""} onChange={(e) => setForm({ ...form, image_url: e.target.value })} placeholder="URL or upload" className="flex-1" />
+                <Button type="button" variant="outline" size="sm" disabled={uploading} onClick={() => document.getElementById("events-upload")?.click()}>
+                  <Upload className="h-4 w-4" />
+                  {uploading ? "..." : "Upload"}
+                </Button>
+                <input id="events-upload" type="file" accept="image/*" className="hidden" onChange={(e) => { if (e.target.files?.[0]) handleFileUpload(e.target.files[0]); }} />
+              </div>
+              {form.image_url && <img src={form.image_url} alt="Preview" className="h-32 w-full object-cover rounded-lg mt-2" />}
             </div>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
